@@ -1,0 +1,38 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function show() {
+            document.getElementById("msg").innerHTML=`${txt1.value}님 안녕하세요! 반갑습니다!`
+        }
+        function del(){
+            document.getElementById("msg").innerHTML=``
+        }
+    </script>
+    <style>
+        #msg{
+            border: 2px solid cornflowerblue;
+            margin-top: 20px;
+            padding: 20px;
+            width: 300px;
+            height: 100px;
+            box-sizing: border-box;
+            background-color: antiquewhite;
+        }
+    </style>
+</head>
+<body>
+    <h1>JavaScript 연습</h1>
+    <form name="form1">
+        <input type = "text" name="txt" id="txt1" placeholder="값입력">
+        <input type="button" value="확인" onclick="show();">
+        <input type="reset" value="초기화1">
+        <input type="button" value="초기화2" onclick="del()">
+        <button type="button" onclick="del()">초기화3</button>
+    </form>
+    <div id="msg"></div>
+</body>
+</html>

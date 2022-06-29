@@ -1,0 +1,33 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            text-align: center;
+        }
+        p{
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>3의 배수 찾기</h1>
+    <script>
+        let cnt=0;
+        let inData=parseInt(prompt("숫자를 입력하세요",100));
+        for(let i=1;i<=inData;i++)
+        {
+            if(i%3==0)
+            {
+                document.write(i+", ");
+                cnt++;
+            }
+        }
+        document.write(`<p>${inData}까지 3의 배수의 개수 : ${cnt}</p>`)
+    </script>
+</body>
+</html>

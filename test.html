@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        a:link,a:visited{
+            color: black;
+            text-decoration: none;
+        }
+        ul{
+            list-style: none;
+            width: 500px;
+            margin: 10px auto;
+            padding: 0;
+        }
+        li{
+            display: inline-block;
+            width: 120px;
+            border: 1px solid #ccc;
+            padding: 10px 15px;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 20px;
+        }
+        #result{
+            width: 490px;
+            height: 300px;
+            border: 1px solid #ccc;
+            text-align: center;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li><a href="#" onclick="changeBg()">Green</a></li>
+        <li><a href="#" onclick="changeBg()">Blue</a></li>
+        <li><a href="#" onclick="changeBg()">Red</a></li>
+    </ul>
+    <div id="result">div</div>
+</body>
+</html>

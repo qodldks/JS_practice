@@ -1,0 +1,158 @@
+body{
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.4;
+    color: #333;
+}
+a{
+    text-decoration: none;
+}
+img{
+    display: block;
+}
+.inner{
+    width: 1100px;
+    margin: 0 auto;
+    position: relative;
+}
+header{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 9;
+    background-color: #F6F5F0;
+    border-bottom: 1px solid #c8c8c8;
+}
+header .inner{
+    height: 120px;
+}
+header .logo{
+    height: 75px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+}
+.sub-menu{
+    position: absolute;
+    top: 10px;
+    right: 0;
+    display: flex;
+}
+.sub-menu ul.menu{
+    font-family: Arial, sans-serif;
+    display: flex;
+    list-style: none;
+}
+.sub-menu ul.menu li{
+    position: relative;
+}
+.sub-menu ul.menu li a{
+    padding: 11px 16px;
+    display: block;
+    font-size: 13px;
+    color: #656565;
+}
+.sub-menu ul.menu li a:hover{
+    color: black;
+}
+.sub-menu .search{
+    position: relative;
+    height: 34px;
+    margin: auto;
+}
+.sub-menu .search input{
+    width: 190px;
+    height: inherit;
+    padding: 4px 10px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 5px;
+    outline: none;
+    background-color: #fff;
+    color: #777;
+    font-size: 12px;
+}
+.sub-menu .search .material-icons{
+    height: 24px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 5px;
+    margin: auto;
+}
+.btn{
+    width: 130px;
+    padding: 10px;
+    border: 2px solid #333;
+    color: black;
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+    cursor: pointer;
+    box-sizing: border-box;
+    display: block;
+    transition: .4s;
+}
+.btn:hover{
+    background-color: #333;
+    color: #fff;
+}
+.visual{
+    margin-top: 120px;
+    background-image: url("../images/visual_bg.jpg");
+    background-position: center;
+}
+.visual .inner{
+    height: 646px;
+    position: relative;
+}
+.visual .title{
+    position: absolute;
+    top: 88px;
+    left: -10px;
+}
+.visual .title .btn{
+    position: absolute;
+    top: 259px;
+    left: 173px;
+}
+.visual .cup1.image{
+    position: absolute;
+    bottom: 0;
+    right: -47px;
+}
+.visual .cup1.text{
+    position: absolute;
+    top: 38px;
+    right: 171px;
+}
+.visual .cup2.image{
+    position: absolute;
+    bottom: 0;
+    right: 162px;
+}
+.visual .cup2.text{
+    position: absolute;
+    top: 321px;
+    right: 416px;
+}
+.visual .spoon{
+    position: absolute;
+    bottom: 0;
+    left: 275px;
+}
+header .badges{
+    position: absolute;
+    top: 132px;
+    right: 12px;
+}
+header .badges .badge{
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 12px;
+    box-shadow: 4px 4px 10px rgba(0,0,0,.15);
+    cursor: pointer;
+}

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2 id="result"></h2>
+    <script>
+        let $resultP = document.getElementById("result");
+        let year = prompt("태어난 해를 입력해주세요.");
+        let gan = year % 10;
+        let ddi = year % 12;
+        switch (gan) {
+            case 1:
+                gan = "신";
+                break;
+            case 2:
+                gan = "임";
+                break;
+            case 3:
+                gan = "계";
+                break;
+            case 4:
+                gan = "갑";
+                break;
+            case 5:
+                gan = "을";
+                break;
+            case 6:
+                gan = "병";
+                break;
+            case 7:
+                gan = "정";
+                break;
+            case 8:
+                gan = "무";
+                break;
+            case 9:
+                gan = "기";
+                break;
+            default:
+                gan = "경";
+                break;
+        }
+        switch (ddi) {
+            case 1:
+                ddi = "유";
+                break;
+            case 2:
+                ddi = "술";
+                break;
+            case 3:
+                ddi = "해";
+                break;
+            case 4:
+                ddi = "자";
+                break;
+            case 5:
+                ddi = "축";
+                break;
+            case 6:
+                ddi = "인";
+                break;
+            case 7:
+                ddi = "묘";
+                break;
+            case 8:
+                ddi = "진";
+                break;
+            case 9:
+                ddi = "사";
+                break;
+            case 10:
+                ddi = "오";
+                break;
+            case 11:
+                ddi = "미";
+                break;
+            default:
+                ddi = "신";
+                break;
+        }
+        $resultP.innerHTML = `${year}년은 ${gan}${ddi} 년입니다.`;
+        alert($resultP.innerHTML);
+    </script>
+</body>
+
+</html>

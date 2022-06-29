@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input[type=button],
+        input[type=reset] {
+            width: 40px;
+            height: 30px;
+        }
+
+        .box1 {
+            border-radius: 10px;
+            border: 2px solid #73AD21;
+            background-color: #73AD21;
+            padding: 10px;
+            margin: 10px;
+            width: 400px;
+            height: 20px;
+            color: white;
+            text-align: center;
+        }
+
+        .box2 {
+            border: 2px solid #73AD21;
+            padding: 10px;
+            margin: 10px;
+            width: 400px;
+            height: 150px;
+            text-align: center;
+        }
+
+        .box3 {
+            border-radius: 10px;
+            border: 2px solid #73AD21;
+            padding: 10px;
+            margin: 10px;
+            width: 400px;
+            height: 50px;
+            text-align: center;
+        }
+
+        .pc1 {
+            width: 25%;
+            text-align: center;
+            float: left;
+        }
+
+        .pc2 {
+            width: 5%;
+            text-align: center;
+            float: left;
+        }
+
+        .pc3 {
+            clear: both;
+            width: 95%;
+            padding-left: 20px;
+            text-align: left;
+            background-color: #E4F7BA;
+            color: red;
+        }
+
+        #msg {
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <form name="myform">
+        <div class="box1">간단한 계산기</div>
+        <div class="box2">
+            <p class="pc1">
+                <input type="text" name="txt1" placeholder="숫자1" size="5">
+            </p>
+            <p class="pc2">
+                <input type="radio" name="r_op" id="r_op1" value="+">
+                <br>
+                <input type="radio" name="r_op" id="r_op2" value="-">
+                <br>
+                <input type="radio" name="r_op" id="r_op3" value="*">
+                <br>
+                <input type="radio" name="r_op" id="r_op4" value="/">
+                <br>
+            </p>
+            <p class="pc2">
+                <label for="r_op1"> + </label>
+                <br>
+                <label for="r_op2"> - </label>
+                <br>
+                <label for="r_op3"> x </label>
+                <br>
+                <label for="r_op4"> / </label>
+                <br>
+            </p>
+            <p class="pc1">
+                <input type="text" name="txt2" placeholder="숫자2" size="5">
+            </p>
+            <p class="pc1">
+                <input type="button" value="=" onclick="calShow()">
+                <input type="reset" value="취소" onclick="clearShow()">
+            </p>
+            <p class="pc3">
+                <input type="checkbox" name="ck_eval" id="ck_eval">
+                <label for="ck_eval">수식포함</label>
+            </p>
+        </div>
+    </form>
+    <div class="box3">
+        <div id="msg"></div>
+    </div>
+    <script>
+        function calShow() {
+            if (myform.txt1.value == "") {
+                alert("첫번째 숫자를 입력하세요.");
+                myform.txt1.focus();
+                return;
+            }
+            if (myform.txt2.value == "") {
+                alert("두번째 숫자를 입력하세요.");
+                myform.txt2.focus();
+                return;
+            }
+            if (myform.r_op.value == "") {
+                alert("연산자를 선택하세요.");
+                myform.r_op.focus();
+                return;
+            }
+            var num1 = parseInt(myform.txt1.value);
+            var num2 = parseInt(myform.txt2.value);
+            var ans = 0;
+            var str = "";
+            switch (myform.r_op.value) {
+                case "+":
+                    ans = num1 + num2;
+                    break;
+                case "-":
+                    ans = num1 - num2;
+                    break;
+                case "*":
+                    ans = num1 * num2;
+                    break;
+                case "/":
+                    ans = num1 / num2;
+                    break;
+            }
+            if (myform.ck_eval.checked == true)
+                str = `${myform.txt1.value} ${myform.r_op.value} ${myform.txt2.value} = ${ans}`;
+            else
+                str = ans;
+            document.getElementById("msg").innerHTML = str;
+        }
+        function clearShow() {
+            myform.reset();
+            document.getElementById("msg").innerHTML = "";
+        }
+    </script>
+</body>
+
+</html>
