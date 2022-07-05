@@ -51,6 +51,7 @@ body {
    text-align: center;
    color: #333;
    font-weight: 500;
+   padding-top: 2.5px;
 }
 
 .navigation ul li a .icon {
@@ -61,12 +62,15 @@ body {
    transition: 0.5s;
 }
 
-.navigation ul li.active a .icon {
-   color: #fff;
-}
-
 .navigation ul li a .icon i {
    font-size: 24px;
+}
+
+.navigation ul li.active a .icon i{
+   font-size: 36px;
+   color: #fff;
+   transform: translateY(3px);
+   transition: 0.5s;
 }
 
 .navigation ul li a .title {
@@ -124,23 +128,23 @@ body {
 }
 
 .navigation ul li:nth-child(1).active~.indicator {
-   transform: translateY(calc(70px * 0));
+   transform: translateY(calc(70px * 0)) scale(150%);
 }
 
 .navigation ul li:nth-child(2).active~.indicator {
-   transform: translateY(calc(70px * 1));
+   transform: translateY(calc(70px * 1)) scale(150%);
 }
 
 .navigation ul li:nth-child(3).active~.indicator {
-   transform: translateY(calc(70px * 2));
+   transform: translateY(calc(70px * 2)) scale(150%);
 }
 
 .navigation ul li:nth-child(4).active~.indicator {
-   transform: translateY(calc(70px * 3));
+   transform: translateY(calc(70px * 3)) scale(150%);
 }
 
 .navigation ul li:nth-child(5).active~.indicator {
-   transform: translateY(calc(70px * 4));
+   transform: translateY(calc(70px * 4)) scale(150%);
 }
 
 .navigation ul li:nth-child(1).active~.indicator::before{

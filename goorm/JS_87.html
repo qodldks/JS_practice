@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+
+<body>
+   <script>
+      const hi1 = function () {
+         return "안녕하세요?";
+      }
+
+      //[1] hi1함수를 화살표 함수로 구현하여 hi2에 저장하시오.
+      const hi2 = () => {
+         return "안녕하세요?";
+      }
+
+      //[2] 화살표 함수로 한줄로 구현하여 hi3에 저장하시오. (명령이 하나이면 { }, return 문 생략 가능)
+      const hi3 = () => "안녕하세요?";
+
+      //[3]hi1,hi2,hi3 함수의 결과를 콘솔에 출력하시오.
+      console.log(hi1, hi2, hi3);
+
+      let sum1 = function (a, b) {
+         return a + b;
+      }
+
+      //[4]화살표 함수로 구현하여 sum2에 저장하시오.
+      let sum2 = (a, b) => {
+         return a + b;
+      }
+      //[5] 화살표 함수 한줄로 구현하여 sum3에 저장하시오. (명령이 하나이면 { }, return 문 생략 가능)
+      let sum3 = (a,b) => a+b;
+
+      //[6] 함수 sum1(2,3),sum2(2,3),sum3(2,3) 결과를 콘솔에 출력하시오.
+      console.log(sum1(2,3),sum2(2,3),sum3(2,3));
+
+      //[7]나머지 매개변수연산자를 사용하여 함수를 정의하여 f1에 저장 하시오.
+      let f1 =function(...etc){ //나머지 매개변수 배열 사용하여 함수 저장
+         console.log(etc);
+      }
+
+      //[8] f1(),f1(1),f1(1,2),f1(1,2,3),f1(1,2,3,...[4,5]); 함수를 실행하고 결과를 console에서 확인하시오.
+      f1();
+      f1(1);
+      f1(1,2);
+      f1(1,2,3);
+      f1(1,2,3,...[4,5]);
+
+      //[9]일반 변수와 나머지 매개변수 함께 사용하는 함수를 정의하여 f2에 저장 하시오.
+      let f2=function(a,b,...etc){//일반 변수와 나머지 매개변수 함께 사용
+         console.log(a, b, etc);
+      } 
+
+      //[10] f2(),f2(1),f2(1,2),f2(1,2,3),f2(1,2,3,4); 함수를 실행하고 결과를 console에서 확인하시오.
+      f2();
+      f2(1);
+      f2(1,2);
+      f2(1,2,3);
+      f2(1,2,3,4);
+
+      const f3 = function (a, b, c) {
+         console.log(a, b, c);
+      }
+      const a = [1, 2, 3];
+      //[11] 배열 인수 a로 f3함수를 호출하시오.
+      f3(a[0],a[1],a[2]);
+      // f3(a[0],a[1],a[2])로 호출하는 것과 동일함
+   </script>
+</body>
+
+</html>
