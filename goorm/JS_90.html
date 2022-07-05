@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <style>
+      #res{
+         width: 600px;
+         height: 200px;
+         background-color: bisque;
+         border: 2px solid dodgerblue;
+      }
+   </style>
+</head>
+
+<body>
+   <div id="res"></div>
+   <script>
+      let res = document.getElementById("res");
+      let text = "<h1> 객체의 사용과 this 연산자";
+      const pet = {
+         name: "구름",
+         age: 12,
+         eat: function (food) {
+            text += "<h3>" + this.name + "이 " + food + "을 먹습니다.</h3>";
+            res.innerHTML=text;
+         }
+      }
+      pet.eat('밥');
+
+      const student ={};
+      student.name='소마';
+      student.hobby='악기';
+      student.hope='생명공학자';
+
+      console.log(JSON.stringify(student.null,1));
+      text+='<h3>'+JSON.stringify(student)+'</h3>';
+      res.innerHTML=text;
+
+      delete student.hope;
+      text+='<h3>'+JSON.stringify(student)+'</h3>';
+      res.innerHTML=text;
+   </script>
+</body>
+
+</html>
