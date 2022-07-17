@@ -80,11 +80,24 @@ function renderBlocks(moveType = "") {
 }
 
 function seizeBlock() {//블록 고정하는 함수
+   const moveBlocks = document.querySelectorAll(".moving");//moving클래스 부여
+   moveBlocks.forEach(moving => {
+      moving.classList.remove("moving");//이동하고 나서 전 위치의 블록 지우기
+      moving.classList.add("seized");
+   });
+   generateNewBlock();
+}
 
+function generateNewBlock(){
+   movingItem.top = 0;
+   movingItem.left = 3;
+   movingItem.direction = 0;
+   tempMovingItem = { ...movingItem };
+   renderBlocks();
 }
 
 function checkEmpty(target) {
-   if (!target) {
+   if (!target || target.classList.contains("seized")) {
       return false;
    }
    return true;
