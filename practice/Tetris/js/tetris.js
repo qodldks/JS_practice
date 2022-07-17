@@ -1,3 +1,5 @@
+import BLOCKS from "./blocks.js";
+
 //DOM 선언
 const playground = document.querySelector(".playground > ul");
 
@@ -11,17 +13,8 @@ let duration = 500;
 let downInterval;
 let tempMovingItem;
 
-const BLOCKS = {
-   tree: [ //뻡규모양
-      [[2, 1], [0, 1], [1, 0], [1, 1]], //회전했을 때 각각의 모양(좌표값)을 배열로 선언
-      [[2, 1], [1, 2], [1, 0], [1, 1]],
-      [[1, 2], [0, 1], [2, 1], [1, 1]],
-      [[1, 2], [0, 1], [1, 0], [1, 1]],
-   ]
-}
-
 const movingItem = {
-   type: "tree",
+   type: "T",
    direction: 3,
    top: 0,
    left: 0,
@@ -88,7 +81,10 @@ function seizeBlock() {//블록 고정하는 함수
    generateNewBlock();
 }
 
-function generateNewBlock(){
+function generateNewBlock() {
+   const blockArray = Object.entries(BLOCKS);
+   const randomIndex = Math.floor(Math.random() * blockArray.length);
+   movingItem.type = blockArray[randomIndex][0];
    movingItem.top = 0;
    movingItem.left = 3;
    movingItem.direction = 0;
