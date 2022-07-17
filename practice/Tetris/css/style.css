@@ -1,4 +1,5 @@
 * {
+   font-family: 'Pretendard';
    margin: 0;
    padding: 0;
 }
@@ -13,6 +14,35 @@ body {
    background-color: #1d1d1f;
 }
 
+.game-text {
+   z-index: 5;
+   display: none;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   gap: 2rem;
+   position: fixed;
+   width: 100%;
+   height: 100%;
+   background: rgba(0, 0, 0, 70%);
+   left: 0;
+   top: 0;
+   color: #fff;
+   font-weight: bold;
+   font-size: 60px;
+}
+
+.game-text>button {
+   font-size: 25px;
+   padding: 0.75rem 1.5rem;
+   color: #fff;
+   background-color: salmon;
+   border: none;
+   font-weight: bold;
+   cursor: pointer;
+   border-radius: 32px;
+}
+
 .score {
    color: #fff;
    text-align: center;
@@ -21,7 +51,7 @@ body {
 }
 
 .playground>ul {
-   border: 1px solid rgb(91, 91, 91);
+   border: 2px solid rgb(91, 91, 91);
    width: 300px;
    margin: 0 auto;
 }
@@ -38,10 +68,11 @@ body {
 .playground>ul>li>ul>li {
    width: 30px;
    height: 30px;
+   outline: 1px dashed rgb(91, 91, 91);
 }
 
-.T{
-   z-index: 10;
+.T {
+   z-index: 3;
    background: #A000F0;
    border-style: solid;
    border-width: 4px;
@@ -49,8 +80,8 @@ body {
    box-sizing: border-box;
 }
 
-.O{
-   z-index: 10;
+.O {
+   z-index: 3;
    background: #F0F001;
    border-style: solid;
    border-width: 4px;
@@ -58,8 +89,8 @@ body {
    box-sizing: border-box;
 }
 
-.I{
-   z-index: 10;
+.I {
+   z-index: 3;
    background: #04F0F0;
    border-style: solid;
    border-width: 4px;
@@ -67,8 +98,8 @@ body {
    box-sizing: border-box;
 }
 
-.Z{
-   z-index: 10;
+.Z {
+   z-index: 3;
    background: #F00001;
    border-style: solid;
    border-width: 4px;
@@ -76,8 +107,8 @@ body {
    box-sizing: border-box;
 }
 
-.S{
-   z-index: 10;
+.S {
+   z-index: 3;
    background: #01F000;
    border-style: solid;
    border-width: 4px;
@@ -85,8 +116,8 @@ body {
    box-sizing: border-box;
 }
 
-.L{
-   z-index: 10;
+.L {
+   z-index: 3;
    background: #F0A000;
    border-style: solid;
    border-width: 4px;
@@ -94,8 +125,8 @@ body {
    box-sizing: border-box;
 }
 
-.J{
-   z-index: 10;
+.J {
+   z-index: 3;
    background: #0100F0;
    border-style: solid;
    border-width: 4px;

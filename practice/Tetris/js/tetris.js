@@ -2,6 +2,9 @@ import BLOCKS from "./blocks.js";
 
 //DOM 선언
 const playground = document.querySelector(".playground > ul");
+const gameText = document.querySelector(".game-text");
+const scoreDisplay = document.querySelector(".score");
+const restartButton = document.querySelector(".game-text > button");
 
 //Setting
 const GAME_ROWS = 20;
@@ -14,10 +17,10 @@ let downInterval;
 let tempMovingItem;
 
 const movingItem = {
-   type: "T",
-   direction: 3,
+   type: "",
+   direction: 1,
    top: 0,
-   left: 0,
+   left: 3,
 };
 
 init();
@@ -28,7 +31,7 @@ function init() {
    for (let i = 0; i < GAME_ROWS; i++) {
       prependNewLine();
    }
-   renderBlocks();
+   generateNewBlock();
 }
 
 function prependNewLine() {
@@ -58,8 +61,12 @@ function renderBlocks(moveType = "") {
       }
       else {
          tempMovingItem = { ...movingItem }
+         if (moveType === 'retry') {
+            clearInterval(downInterval);
+            showGameoverText();
+         }
          setTimeout(() => {//콜 스택 오버플로우를 방지(이벤트를 계속 호출해서 오류발생함)
-            renderBlocks();//재귀함수 사용
+            renderBlocks('retry');//재귀함수 사용
             if (moveType === "top") {
                seizeBlock();
             }
@@ -78,10 +85,31 @@ function seizeBlock() {//블록 고정하는 함수
       moving.classList.remove("moving");//이동하고 나서 전 위치의 블록 지우기
       moving.classList.add("seized");
    });
+   checkMatch()
+}
+
+function checkMatch() {
+   const childNodes = playground.childNodes;
+   childNodes.forEach(child => {//각각의 li를 체크
+      let matched = true;
+      child.children[0].childNodes.forEach(li => {
+         if (!li.classList.contains("seized")) {
+            matched = false;
+         }
+      })
+      if (matched) {
+         child.remove();
+         prependNewLine()
+      }
+   })
    generateNewBlock();
 }
 
 function generateNewBlock() {
+   clearInterval(downInterval);
+   downInterval = setInterval(() => {
+      moveBlock('top', 1)
+   }, duration)
    const blockArray = Object.entries(BLOCKS);
    const randomIndex = Math.floor(Math.random() * blockArray.length);
    movingItem.type = blockArray[randomIndex][0];
@@ -111,6 +139,17 @@ function changeDirection() {
    renderBlocks();
 }
 
+function dropBlock() {
+   clearInterval(downInterval);
+   downInterval = setInterval(() => {
+      moveBlock("top", 1);
+   }, 10)
+}
+
+function showGameoverText() {
+   gameText.style.display = "flex";
+}
+
 //event handling
 document.addEventListener("keydown", e => {
    switch (e.keyCode) {
@@ -126,7 +165,16 @@ document.addEventListener("keydown", e => {
       case 40:
          moveBlock("top", 1);
          break;
+      case 32:
+         dropBlock();
+         break;
       default:
          break;
    }
+})
+
+restartButton.addEventListener("click", () => {
+   playground.innerHTML = "";
+   gameText.style.display = "none";
+   init();
 })
