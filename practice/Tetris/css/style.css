@@ -1,5 +1,5 @@
 * {
-   font-family: 'Pretendard';
+   font-family: 'Noto Sans KR';
    margin: 0;
    padding: 0;
 }
@@ -37,8 +37,8 @@ body {
 }
 
 .game-text>button {
-   font-size: 25px;
-   padding: 0.75rem 1.5rem;
+   font-size: 20px;
+   padding: 0.5rem 1rem;
    color: #fff;
    background-color: salmon;
    border: none;
