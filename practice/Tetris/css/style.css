@@ -4,6 +4,10 @@
    padding: 0;
 }
 
+.wrapper {
+   padding-top: 30px;
+}
+
 ul {
    list-style: none;
    background-color: #2d2d2f;
@@ -43,7 +47,7 @@ body {
    border-radius: 32px;
 }
 
-.score {
+.wrapper>.score {
    color: #fff;
    text-align: center;
    font-size: 64px;

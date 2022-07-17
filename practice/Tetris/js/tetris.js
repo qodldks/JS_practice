@@ -12,7 +12,7 @@ const GAME_COLS = 10;
 
 //variables
 let score = 0;
-let duration = 500;
+let duration = 1000;
 let downInterval;
 let tempMovingItem;
 
@@ -100,6 +100,9 @@ function checkMatch() {
       if (matched) {
          child.remove();
          prependNewLine()
+         score++;
+         duration -= 12.5;
+         scoreDisplay.innerHTML = score;
       }
    })
    generateNewBlock();
