@@ -14,17 +14,17 @@ let tempMovingItem;
 const BLOCKS = {
    tree: [ //뻡규모양
       [[2, 1], [0, 1], [1, 0], [1, 1]], //회전했을 때 각각의 모양(좌표값)을 배열로 선언
-      [[], [], [], []],
-      [[], [], [], []],
-      [[], [], [], []],
+      [[1, 2], [0, 1], [1, 0], [1, 1]],
+      [[1, 2], [0, 1], [2, 1], [1, 1]],
+      [[2, 1], [1, 2], [1, 0], [1, 1]],
    ]
 }
 
 const movingItem = {
    type: "tree",
-   direction: 0,
+   direction: 3,
    top: 0,
-   left: 3,
+   left: 0,
 };
 
 init();
@@ -49,13 +49,13 @@ function prependNewLine() {
    playground.prepend(li)
 }
 
-function renderBlocks() {
+function renderBlocks(moveType = "") {
    const { type, direction, top, left } = tempMovingItem;
    const moveBlocks = document.querySelectorAll(".moving");//moving클래스 부여
    moveBlocks.forEach(moving => {
       moving.classList.remove(type, "moving");//이동하고 나서 전 위치의 블록 지우기
    });
-   BLOCKS[type][direction].forEach(block => {
+   BLOCKS[type][direction].some(block => {
       const x = block[0] + left;
       const y = block[1] + top;
       const target = playground.childNodes[y] ? playground.childNodes[y].childNodes[0].childNodes[x] : null;
@@ -67,10 +67,11 @@ function renderBlocks() {
          tempMovingItem = { ...movingItem }
          setTimeout(() => {//콜 스택 오버플로우를 방지(이벤트를 계속 호출해서 오류발생함)
             renderBlocks();//재귀함수 사용
-            if(moveType ==="top"){
+            if (moveType === "top") {
                seizeBlock();
             }
          }, 0)
+         return true;
       }
    });
    movingItem.left = left;
@@ -78,8 +79,8 @@ function renderBlocks() {
    movingItem.direction = direction;
 }
 
-function seizeBlock(){
-   
+function seizeBlock() {//블록 고정하는 함수
+
 }
 
 function checkEmpty(target) {
@@ -92,6 +93,12 @@ function checkEmpty(target) {
 
 function moveBlock(moveType, amount) {
    tempMovingItem[moveType] += amount
+   renderBlocks(moveType);
+}
+
+function changeDirection() {
+   const direction = tempMovingItem.direction;
+   direction === 3 ? tempMovingItem.direction = 0 : tempMovingItem.direction += 1;
    renderBlocks();
 }
 
@@ -103,6 +110,9 @@ document.addEventListener("keydown", e => {
          break;
       case 37:
          moveBlock("left", -1);
+         break;
+      case 38:
+         changeDirection();
          break;
       case 40:
          moveBlock("top", 1);
