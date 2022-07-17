@@ -40,5 +40,10 @@ body {
 }
 
 .tree{
+   z-index: 10;
    background: #67c23a;
+   border-style: solid;
+   border-width: 4px;
+   border-color: #99df76 #44941c #2a640f;
+   box-sizing: border-box;
 }
