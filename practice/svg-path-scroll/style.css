@@ -15,7 +15,7 @@
 
 .path1 {
   stroke-dasharray: 6884;
-  animation: drawPath1 1s linear, floating 2.2s linear infinite;
+  animation: drawPath1 1s linear, floating 2.2s ease-in-out infinite;
 }
 
 .content1 {
@@ -57,6 +57,6 @@
 
 @keyframes floating {
   50% {
-    transform: translate3d(0, 40px, 0);
+    transform: translate3d(0, 70px, 0);
   }
 }

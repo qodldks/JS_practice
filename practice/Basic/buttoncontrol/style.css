@@ -1,0 +1,58 @@
+* {
+   margin: 0;
+   padding: 0;
+}
+
+.container {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   gap: 30px;
+   margin: 50px 0;
+}
+
+.valueNum {
+   display: flex;
+}
+
+.numButton {
+   display: flex;
+   padding: 14px 24px;
+   font-size: 20px;
+   border-radius: 16px;
+   border: none;
+   background-color: rgb(209, 209, 209);
+   color: #333333;
+   font-weight: 600;
+   transition-duration: 0.25s;
+}
+
+.numButton:hover {
+   background-color: #333333;
+   color: #fff;
+}
+
+.wrapper {
+   display: flex;
+   flex-direction: row;
+   gap: 16px;
+}
+
+.stringInput {
+   padding: 2.5px;
+   font-size: 20px;
+   border: none;
+   border-bottom: 1px solid;
+   transition-duration: 0.1s;
+}
+
+.stringInput:focus {
+   outline: none;
+   border-bottom: 3px solid blue;
+}
+
+.valueColor{
+   padding: 10px 20px;
+   border-radius: 16px;
+}
